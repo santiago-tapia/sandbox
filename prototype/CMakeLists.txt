@@ -28,6 +28,7 @@ include_directories(
 
 set(SOURCE_CPP_FILES_MAIN
   src/main.cpp
+  src/logic_a/logic_a.cpp
 )
 
 add_executable(main ${SOURCE_CPP_FILES_MAIN})
