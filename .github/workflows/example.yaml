@@ -13,10 +13,11 @@ jobs:
       fail-fast: false
     steps:
       - name: Source ROS2
-        run: source /opt/ros/humble/setup.sh
+      # Atention: commands run on shell not on bash
+        run: . /opt/ros/humble/setup.sh && echo "source humble done"
       - name: Make workspace
-        run: mkdir -p __w/src && vcs import src/ --input https://raw.githubusercontent.com/santiago-tapia/sandbox/main/my.repos
+        run: mkdir -p __w/src && cd __w && vcs import src/ --input https://raw.githubusercontent.com/santiago-tapia/sandbox/main/my.repos
       - name: Install deps
-        run: rosdep install -i --from-path src --rosdistro humble -y
+        run: cd __w && rosdep install -i --from-path src --rosdistro humble -y
       - name: Build
-        run: colcon build --symlink-install --event-handlers=console_cohesion+
+        run: . /opt/ros/humble/setup.sh && colcon build --symlink-install --event-handlers=console_cohesion+
