@@ -1,3 +1,10 @@
+
+# Debian package building with bloom-generate
+.obj-x86_64-linux-gnu/
+*.deb
+*.ddeb
+*/debian/
+
 # Prerequisites
 *.d
 
@@ -30,3 +37,6 @@
 *.exe
 *.out
 *.app
+
+# Just discard things
+discarded/
